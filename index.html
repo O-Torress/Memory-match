@@ -17,9 +17,7 @@
   <main>
     <section>
       <h1 id="titulo">Mindset</h1>
-      <p class="subtitle">Entrena tu memoria</p>
-      </div>
-
+      
       <section id="formulario">
         <form id="config-form">
           <div class="form-group">
@@ -30,17 +28,19 @@
               <option value="practica">Modo Libre </option>
             </select>
           </div>
+          <br>
 
           <div class="form-group" id="player1-group">
             <label for="player1Name" id="lbl-player1">Nombre del Jugador</label>
             <input type="text" id="player1Name" placeholder="Tu nombre...">
           </div>
-
-
+          
+          <br>
           <div class="form-group hidden" id="player2-group">
             <label for="player2Name">Nombre del Jugador 2</label>
-            <input type="text" id="player2Name" placeholder="Jugador 2...">
+            <input type="text" id="player2Name" placeholder="Tu nombre...">
           </div>
+          <br>
 
           <div class="form-group">
             <label for="dificultad">Dificultad</label>
@@ -50,6 +50,7 @@
               <option value="dificil">Difícil (8x8)</option>
             </select>
           </div>
+          <br>
 
           <div class="form-group">
             <label for="tematica">Temática visual</label>
@@ -59,7 +60,8 @@
               <option value="3">3 </option>
             </select>
           </div>
-
+          <br>
+          
           <button id="btn-start" type="submit">Iniciar Juego</button>
         </form>
       </section>
@@ -79,13 +81,12 @@
 
   <div id="toast-container"></div>
 
-  <script src="./js/themes.js"></script>
+  <script src="./js/temas.js"></script>
   <script src="./js/timer.js"></script>
-  <script src="./js/achievements.js"></script>
+  <script src="./js/logros.js"></script>
   <script src="./js/board.js"></script>
   <script src="./js/game.js"></script>
   <script src="./js/modes.js"></script>
-  <script src="./js/hud.js"></script>
   <script src="./js/endScreen.js"></script>
   <script src="./js/menu.js"></script>
   <script src="./js/app.js"></script>
