@@ -1,3 +1,4 @@
+
 function mostrarPantallaFinal() {
   const overlay = document.getElementById('end-screen-overlay');
   const endScreen = document.getElementById('end-screen');
@@ -55,3 +56,54 @@ function mostrarPantallaFinal() {
         </div>
       </div>
     `;
+
+  } else {
+    html += `<h2>🎉 ¡Partida Completa!</h2>`;
+    html += `<div class="stats-grid">`;
+    
+    html += `
+      <div class="stat-item">
+        <span class="stat-label">Movimientos</span>
+        <span class="stat-value">${gameState.moves}</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">Acierto</span>
+        <span class="stat-value">${tasaAcierto}%</span>
+      </div>
+    `;
+
+    if (gameState.mode === 'solitario' && typeof timerSeconds !== 'undefined') {
+      html += `
+        <div class="stat-item" style="grid-column: span 2;">
+          <span class="stat-label">Tiempo Total</span>
+          <span class="stat-value">${formatearTiempoParaMostrar(timerSeconds)}</span>
+        </div>
+      `;
+    }
+    html += `</div>`;
+  }
+
+  html += `
+    <div class="end-buttons">
+      <button id="btn-play-again">🔄 Jugar de Nuevo</button>
+      <button id="btn-back-menu" class="btn-secondary">🏠 Volver al Menú</button>
+    </div>
+  `;
+
+  endScreen.innerHTML = html;
+
+  overlay.classList.remove('hidden');
+
+
+  document.getElementById('btn-play-again').addEventListener('click', reiniciarJuego);
+  document.getElementById('btn-back-menu').addEventListener('click', backToMenu);
+}
+
+function formatearTiempoParaMostrar(segundos) {
+  if (typeof formatTime === 'function') {
+    return formatTime(segundos);
+  }
+  const min = Math.floor(segundos / 60).toString().padStart(2, '0');
+  const sec = (segundos % 60).toString().padStart(2, '0');
+  return `${min}:${sec}`;
+}
