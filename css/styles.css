@@ -78,13 +78,13 @@ input:hover {
 }
 
 button:hover {
-  background-color: #499dd1;
+  transform: scale(1.02);
 }
 
 button {
   padding: 10px;
   cursor: pointer;
-  background-color: #1591DC;
+  background-color: #D92243;
   border: none;
   border-radius: 16px;
   color: white;
