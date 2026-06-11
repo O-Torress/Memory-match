@@ -1,3 +1,4 @@
+
 function initMode(modo) {
   if (modo === 'solitario') {
     initSolitarioMode();
@@ -80,3 +81,40 @@ function renderHUD() {
         <span class="hud-value" id="hud-moves">0</span>
       </div>
       <button class="hud-btn-restart" id="btn-restart-game">Reiniciar</button>
+    `;//commit
+  }
+  else if (modo === 'practica') {
+    hudContainer.innerHTML = `
+      <div class="hud-stat">
+        <span class="hud-label">Jugador</span>
+        <span class="hud-value" id="hud-player-name">${gameState.players[0].name}</span>
+      </div>
+      <div class="hud-stat">
+        <span class="hud-label">Movimientos</span>
+        <span class="hud-value" id="hud-moves">0</span>
+      </div>
+      <div class="hud-stat">
+        <span class="hud-label">Pares</span>
+        <span class="hud-value" id="hud-pairs">0 / ${gameState.totalPairs}</span>
+      </div>
+      <button class="hud-btn-restart" id="btn-restart-game">Reiniciar</button>
+    `;
+  }
+  const btnRestart = document.getElementById('btn-restart-game');
+  if (btnRestart) {
+    btnRestart.addEventListener('click', () => {
+      if (typeof backToMenu === 'function') {
+        backToMenu();
+      }
+    });
+  }
+}
+
+function updateHUD() {
+  if (typeof gameState === 'undefined') return;
+
+  const movesEl = document.getElementById('hud-moves');
+  if (movesEl) movesEl.textContent = gameState.moves;
+
+  const pairsEl = document.getElementById('hud-pairs');
+  if (pairsEl) pairsEl.textContent = `${gameState.pairs} / ${gameState.totalPairs}`;
