@@ -1,4 +1,3 @@
-
 function mostrarPantallaFinal() {
   const overlay = document.getElementById('end-screen-overlay');
   const endScreen = document.getElementById('end-screen');
@@ -29,3 +28,30 @@ function mostrarPantallaFinal() {
     } else {
       titulo = `🤝 ¡Es un Empate!`;
     }
+
+    html += `<h2>${titulo}</h2>`;
+    html += `
+      <div class="pvp-results">
+        <div class="${classP1}">
+          <div class="stat-label">${p1.name}</div>
+          <div class="stat-value">${p1.score} pares</div>
+        </div>
+        <div class="${classP2}">
+          <div class="stat-label">${p2.name}</div>
+          <div class="stat-value">${p2.score} pares</div>
+        </div>
+      </div>
+    `;
+   
+    html += `
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span class="stat-label">Total Movimientos</span>
+          <span class="stat-value">${gameState.moves}</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Tasa Acierto Global</span>
+          <span class="stat-value">${tasaAcierto}%</span>
+        </div>
+      </div>
+    `;
