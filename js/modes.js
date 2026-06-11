@@ -1,3 +1,4 @@
+
 function initMode(modo) {
   if (modo === 'solitario') {
     initSolitarioMode();
@@ -29,3 +30,11 @@ function initPracticaMode() {
     resetTimer();
   }
 }
+
+function renderHUD() {
+  const hudContainer = document.getElementById('hud');
+  if (!hudContainer || typeof gameState === 'undefined') return;
+
+  hudContainer.innerHTML = ''; 
+
+  const modo = gameState.mode;
