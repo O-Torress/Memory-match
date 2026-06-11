@@ -50,3 +50,35 @@ const   LOGROS = [
     verificar: function(state) {
       return state.totalPairs > 0 && state.pairs >= Math.ceil(state.totalPairs / 2);
     }
+    
+  },
+  {
+    id: 'perfeccionista',
+    nombre: 'Perfeccionista',
+    descripcion: 'Termina el juego con una tasa de acierto del 80% o más.',
+    icono: '💎',
+    verificar: function(state) {
+      if (state.pairs !== state.totalPairs || state.moves === 0) return false;
+      const tasa = state.pairs / state.moves;
+      return tasa >= 0.8;
+    }
+  }
+];
+
+function verificarLogros(state) {
+  if (!state) return;
+
+  LOGROS.forEach(function(logro) {
+
+    if (logroYaDesbloqueado(logro.id)) return;
+
+    if (logro.verificar(state)) {
+    
+      logrosDesbloqueados.push(logro);
+      
+      mostrarToast(logro);
+      
+      actualizarBarraLogros();
+    }
+  });
+}
