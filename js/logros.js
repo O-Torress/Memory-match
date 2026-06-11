@@ -1,3 +1,4 @@
+
 let logrosDesbloqueados = [];
 
 const   LOGROS = [
@@ -81,4 +82,32 @@ function verificarLogros(state) {
       actualizarBarraLogros();
     }
   });
+}
+
+function logroYaDesbloqueado(id) {
+  return logrosDesbloqueados.some(function(l) { return l.id === id; });
+}
+
+function mostrarToast(logro) {
+  const container = document.getElementById('toast-container');
+  if (!container) return;
+
+  const toast = document.createElement('div');
+  toast.className = 'toast';
+  
+  toast.innerHTML = `
+    <div class="toast-icon">${logro.icono}</div>
+    <div class="toast-content">
+      <h4>¡Logro Desbloqueado!</h4>
+      <p><strong>${logro.nombre}</strong>: ${logro.descripcion}</p>
+    </div>
+  `;
+
+  container.appendChild(toast);
+
+  setTimeout(function() {
+    if (container.contains(toast)) {
+      container.removeChild(toast);
+    }
+  }, 3000);
 }
