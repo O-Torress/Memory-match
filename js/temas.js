@@ -1,12 +1,12 @@
-
-let  TEMAS = {
+const TEMAS = {
   "1": {
     nombre: "Animales",
     icono: "🐾",
-    colorPrimario: "#00b894",
-    colorSecundario: "#55efc4",
+    colorPrimario: "#D92243",
+    colorSecundario: "#d53b57",
     emojis: [
       '🐶','🐱','🐭','🐹','🐰','🦊','🐻','🐼','🐨','🐯','🦁','🐮','🐷','🐸','🐵','🐔',
       '🐧','🦆','🦉','🐴','🦄','🐝','🐛','🦋','🐌','🐞','🐢','🐍','🦎','🦖','🐙','🦈'
     ]
-  },
+  }
+}

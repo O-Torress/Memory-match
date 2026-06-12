@@ -118,3 +118,20 @@ function updateHUD() {
 
   const pairsEl = document.getElementById('hud-pairs');
   if (pairsEl) pairsEl.textContent = `${gameState.pairs} / ${gameState.totalPairs}`;
+
+  if (gameState.mode === 'pvp') {
+    const p1Score = document.getElementById('player-1-score');
+    const p2Score = document.getElementById('player-2-score');
+    if (p1Score) p1Score.textContent = gameState.players[0].score;
+    if (p2Score) p2Score.textContent = gameState.players[1].score;
+
+    const p1Ind = document.getElementById('player-1-indicator');
+    const p2Ind = document.getElementById('player-2-indicator');
+    if (p1Ind) p1Ind.classList.toggle('active', gameState.currentPlayer === 0);
+    if (p2Ind) p2Ind.classList.toggle('active', gameState.currentPlayer === 1);
+  }
+
+  if (typeof actualizarBarraLogros === 'function') {
+    actualizarBarraLogros();
+  }
+}
