@@ -1,6 +1,6 @@
-var firstCard = null;
-var secondCard = null;
-var isBoardLocked = false;
+let firstCard = null;
+let secondCard = null;
+let isBoardLocked = false;
 
 function flipCard(cardEl) {
   if (isBoardLocked) return;
@@ -33,8 +33,8 @@ function flipCard(cardEl) {
 }
 
 function checkMatch(card1, card2) {
-  var emoji1 = card1.querySelector('.card-front').textContent;
-  var emoji2 = card2.querySelector('.card-front').textContent;
+  let emoji1 = card1.querySelector('.card-front').textContent;
+  let emoji2 = card2.querySelector('.card-front').textContent;
   return emoji1 === emoji2;
 }
 
@@ -44,10 +44,10 @@ function handleMatch(card1, card2) {
   card2.classList.remove('flipped');
   card2.classList.add('matched');
 
-  var id1 = parseInt(card1.dataset.cardId);
-  var id2 = parseInt(card2.dataset.cardId);
-  var cardData1 = currentBoardData.find(function (c) { return c.id === id1; });
-  var cardData2 = currentBoardData.find(function (c) { return c.id === id2; });
+  let id1 = parseInt(card1.dataset.cardId);
+  let id2 = parseInt(card2.dataset.cardId);
+  let cardData1 = currentBoardData.find(function (c) { return c.id === id1; });
+  let cardData2 = currentBoardData.find(function (c) { return c.id === id2; });
   if (cardData1) cardData1.isMatched = true;
   if (cardData2) cardData2.isMatched = true;
 

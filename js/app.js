@@ -1,4 +1,5 @@
-let gameState = null;let currentConfig = null;
+let gameState = null;
+let currentConfig = null;
 
 function startGame(config) {
   currentConfig = config;

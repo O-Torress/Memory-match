@@ -221,13 +221,6 @@ button:hover {
   border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
-.card-back::after {
-  content: '?';
-  font-size: 32px;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.7);
-}
-
 .card-front {
   background: rgba(255, 255, 255, 0.95);
   transform: rotateY(180deg);
@@ -488,10 +481,6 @@ button:hover {
 
   .card-front {
     font-size: 24px;
-  }
-
-  .card-back::after {
-    font-size: 22px;
   }
 
   #hud {
